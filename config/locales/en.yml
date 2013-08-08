@@ -2,4 +2,25 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  addons: 'Addons'
+  position: 'Position'
+  created: 'Created'
+  updated: 'Updated'
+  visible: 'Visible?'
+  actions: 'Actions'
+  add_new: 'Add new'
+  show: 'Show'
+  delete: 'Delete'
+  edit: 'Edit'
+  yes: 'Yes'
+  no: 'No'
+  saved: 'Saved!'
+  deleted: 'Deleted!'
+  edit_id: 'Edit ID: '
+  remove: 'Remove'
+  name: "Name"
+  back_to_list: 'Back to list'
+  show_details_about_id: 'Show details about ID'
+  data: 'Data'
+  yes_label: "Yes"
+  no_label: "No"

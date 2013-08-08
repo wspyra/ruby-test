@@ -1,0 +1,52 @@
+
+pl:
+
+  date:
+    formats:
+      default: "%d.%m.%Y"
+  time:
+    formats:
+      default: "%d.%m.%Y %H:%M"
+
+  formtastic:
+    titles:
+
+    labels:
+      test:
+        name: "Nazwa"
+        data: "Dane"
+        visible: "Widoczność"
+        test_addon:
+          name: "Nazwa"
+          value: "Wartość"
+    hints:
+
+    placeholders:
+
+    actions:
+      create: "Dodaj %{model}"
+      update: "Zapisz zmiany"
+      reset: "Zacznij od nowa"
+      cancel: "Anuluj"
+
+  addons: 'Dodatki'
+  actions: "Akcje"
+  visible: "Widoczny?"
+  created: "Utworzono"
+  updated: "Zaktualizowano"
+  position: "Pozycja"
+  edit: "Edytuj"
+  delete: "Usuń"
+  show: "Pokaż"
+  name: "Nazwa"
+  add_new: "Dodaj nowy"
+  no_label: "Nie"
+  yes_label: "Tak"
+  back_to_list: 'Wróć na listę'
+  show_details_about_id: 'Szczegóły o ID'
+  edit_id: "Edycja ID"
+  remove: "Usuń"
+  saved: 'Zapisano!'
+  deleted: 'Usunięto!'
+  reomve: 'Usuń'
+  data: 'Dane'
