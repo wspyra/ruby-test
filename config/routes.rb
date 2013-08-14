@@ -1,13 +1,9 @@
 RubyTest::Application.routes.draw do
-  scope '(:locale)' do
-    root :to => 'tests#list'
-    get 'tests/new'
-    post 'tests/create'
-    post 'tests/save/:id' => 'tests#save'
-    match 'tests/edit/:id' => 'tests#edit'
-    match 'tests/list(/:page)' => 'tests#list'
-    match 'tests/show/:id' => 'tests#show'
-    match 'tests/delete/:id' => 'tests#delete'
+
+  scope '(:locale)', :locale => /en|pl/ do
+    root :to => 'tests#index'
+    match 'tests/:id/:move' => 'tests#index', :move => /up|down/
+    resources :tests
   end
 
   # The priority is based upon order of creation:

@@ -9,7 +9,8 @@ gem 'mysql2'
 
 gem 'formtastic'
 gem 'cocoon'
-
+gem 'acts_as_list'
+gem 'paperclip', '~> 3.0'
 gem 'will_paginate', '~> 3.0.0'
 
 # Gems used only for assets and not required

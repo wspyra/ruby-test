@@ -6,13 +6,40 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="<%= :controller_name %>" class="<%= :action_name %>">
 
-<%- flash.each do |name, message| %>
-<p><i><%= "#{name}: #{message} "%></i></p>
-<% end %>
+  <div class="links">
+    <div class="container">
+      <%= select_tag :locale, options_for_select(@languages, I18n.locale), {:onchange => 'setLocale();', :id => 'language_select'} %>
+    </div>
+  </div>
 
-<%= yield %>
+  <div class="header">
+    <div class="container">
+      <h1>Ruby <span>Test</span></h1>
+    </div>
+  </div>
+
+  <div class="flash">
+    <ul class="container">
+      <%- flash.each do |name, message| %>
+          <li>
+            <%= "#{t name}:" %>
+            <span>
+              <%= "#{message}" %>
+            </span>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="content">
+    <div class="container">
+
+      <%= yield %>
+
+    </div>
+  </div>
 
 </body>
 </html>

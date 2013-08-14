@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require_tree .
 //= require cocoon
+
+function setLocale() {
+  var locale = $('#language_select option:selected').val();
+  window.location = '/' + $('#language_select option:selected').val();
+}

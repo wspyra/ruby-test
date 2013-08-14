@@ -1,0 +1,80 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ *= require formtastic
+*/
+
+@import 'variables';
+
+* {
+  font: $font;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $white;
+  color: $dark-gray;
+  min-width: $min-width;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.container {
+  width: $min-width;
+  margin: $margin-center;
+}
+
+.links {
+  background: $dark-gray;
+  color: $light-red;
+  width: 100%;
+  padding: 5px 0;
+  text-align: right;
+}
+
+.header {
+  background: $red;
+  color: $white;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: $font-big;
+  font-weight: bold;
+}
+
+.header h1 span {
+  color: $pink;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.flash {
+  background: $blue;
+}
+
+.flash ul {
+  list-style: none;
+}
+
+.flash ul li {
+  padding: 5px 10px;
+}
+
+.flash ul li span {
+  font-style: italic;
+}
