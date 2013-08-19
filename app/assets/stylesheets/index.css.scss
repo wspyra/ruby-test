@@ -1,0 +1,21 @@
+@import "variables";
+
+table, td, th {
+  border: $table-border;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table {
+  margin: 5px 0 15px 0;
+}
+
+td, th {
+  padding: 5px;
+}
+
+th {
+  background: $dark-gray;
+  color: $red;
+  font-weight: bold;
+}

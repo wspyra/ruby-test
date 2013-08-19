@@ -1,0 +1,100 @@
+<h1>
+  <%= t 'show_details_about_id' %>: <%= @test.id %>
+</h1>
+
+<p>
+  <strong>
+    <%= t 'name' %>:
+  </strong>
+  <span><%= @test.name %></span>
+</p>
+
+<p>
+  <strong>
+    <%= t 'data' %>:
+  </strong>
+  <span><%= @test.data %></span>
+</p>
+
+<p>
+  <strong>
+    <%= t 'position' %>:
+  </strong>
+  <span><%= @test.position %></span>
+</p>
+
+<p>
+  <strong>
+    <%= t 'upload_status' %>:
+  </strong>
+  <span><%= t @test.status_upload %></span>
+</p>
+
+<p>
+  <strong>
+    <%= t 'mail_status' %>:
+  </strong>
+  <span><%= t @test.status_mail %></span>
+</p>
+
+<p>
+  <strong>
+    <%= t 'visible' %>:
+  </strong>
+  <span>
+    <%= @test.visible ? t('yes_label') : t('no_label') %>
+  </span>
+</p>
+
+<p>
+  <strong>
+    <%= t 'created' %>:
+  </strong>
+  <span>
+    <%= l @test.created_at %>
+  </span>
+</p>
+
+<p>
+  <strong>
+    <%= t 'updated'%>:
+  </strong>
+  <span>
+    <%= l @test.updated_at %>
+  </span>
+</p>
+
+<div>
+  <div>
+    <%= link_to image_tag(@test.image.url(:medium)), @test.image.url, :class => 'fancybox' %>
+  </div>
+  <% if @test.image_file_name %>
+      <p>
+        <%=t 'name' %>: <%= @test.image_file_name %>
+      </p>
+      <p>
+        <%=t 'size' %>: <%= number_to_human_size @test.image_file_size   %>
+      </p>
+      <p>
+        <%=t 'updated' %>: <%=l @test.image_updated_at unless @test.image_updated_at.blank? %>
+      </p>
+  <% end %>
+</div>
+
+<div>
+  <strong>
+    <%= t 'addons' %>:
+  </strong>
+  <ul>
+      <% @test_addons.each do |t| %>
+        <li>
+          <strong>
+            <%= t.name %>:
+          </strong>
+          <%= t.value %>
+        </li>
+      <% end %>
+  </ul>
+</div>
+
+<%= render 'tests/back_to_list' %>
