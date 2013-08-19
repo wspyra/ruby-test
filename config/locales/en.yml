@@ -51,3 +51,4 @@ en:
   IN_PROGRESS: 'In progress'
   ERROR: 'Error'
   OK: 'OK'
+  none: 'None'

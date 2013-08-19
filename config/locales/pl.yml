@@ -72,3 +72,4 @@ pl:
   OK: 'OK'
   enter_email: 'Podaj email:'
   incorrect_email: 'Błędny email'
+  none: 'Brak'

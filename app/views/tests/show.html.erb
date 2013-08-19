@@ -27,14 +27,14 @@
   <strong>
     <%= t 'upload_status' %>:
   </strong>
-  <span><%= t @test.status_upload %></span>
+  <span><%= @test.status_upload ? t(@test.status_upload) : t('none') %></span>
 </p>
 
 <p>
   <strong>
     <%= t 'mail_status' %>:
   </strong>
-  <span><%= t @test.status_mail %></span>
+  <span><%= @test.status_mail ? t(@test.status_mail) : t('none') %></span>
 </p>
 
 <p>

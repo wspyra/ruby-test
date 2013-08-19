@@ -58,6 +58,11 @@ h1 {
   font-weight: bold;
 }
 
+h2 {
+  font-size: $font-medium;
+  font-weight: bold;
+}
+
 h1 span {
   color: $pink;
   font-size: inherit;
@@ -96,7 +101,7 @@ h1 span {
   font-style: italic;
 }
 
-.action_btn, .input_action input {
+.action_btn, .formtastic .input_action input {
   background: $red;
   color: $white;
   border: 1px solid $dark-gray;
@@ -104,8 +109,20 @@ h1 span {
   display: inline-block;
   text-decoration: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-.action_btn:hover, .input_action input:hover {
+.action_btn:hover, .formtastic .input_action input:hover {
   background: $light-red;
+}
+
+.nested_fields {
+  border: 1px solid $dark-gray;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+hr {
+  margin: 10px 0;
 }
