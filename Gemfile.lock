@@ -44,13 +44,22 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    delayed_job (3.0.5)
+      activesupport (~> 3.0)
+    delayed_job_active_record (0.4.3)
+      activerecord (>= 2.1.0, < 4)
+      delayed_job (~> 3.0)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fancybox-rails (0.2.1)
+      railties (>= 3.1.0)
     formtastic (2.2.1)
       actionpack (>= 3.0)
     hike (1.2.3)
     i18n (0.6.4)
+    i18n-js (2.1.2)
+      i18n
     journey (1.0.4)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
@@ -85,6 +94,8 @@ GEM
       activesupport (= 3.2.0)
       bundler (~> 1.0)
       railties (= 3.2.0)
+    rails-i18n (0.7.4)
+      i18n (~> 0.5)
     railties (3.2.0)
       actionpack (= 3.2.0)
       activesupport (= 3.2.0)
@@ -122,11 +133,15 @@ DEPENDENCIES
   acts_as_list
   cocoon
   coffee-rails (~> 3.2.1)
+  delayed_job_active_record
+  fancybox-rails
   formtastic
+  i18n-js
   jquery-rails
   mysql2
   paperclip (~> 3.0)
   rails (= 3.2.0)
+  rails-i18n
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
   will_paginate (~> 3.0.0)

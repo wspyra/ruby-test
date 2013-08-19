@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require fancybox
  *= require_tree .
  *= require formtastic
 */
@@ -52,15 +53,31 @@ strong {
   text-align: center;
 }
 
-.header h1 {
+h1 {
   font-size: $font-big;
   font-weight: bold;
 }
 
-.header h1 span {
+h1 span {
   color: $pink;
   font-size: inherit;
   font-weight: inherit;
+}
+
+.content h1 {
+  margin: 10px 0 20px 0;
+}
+
+.content p {
+  margin: 10px 0;
+}
+
+.content ul {
+  list-style: disc inside;
+}
+
+.content ul li {
+  margin: 10px 0;
 }
 
 .flash {
@@ -77,4 +94,18 @@ strong {
 
 .flash ul li span {
   font-style: italic;
+}
+
+.action_btn, .input_action input {
+  background: $red;
+  color: $white;
+  border: 1px solid $dark-gray;
+  padding: 10px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.action_btn:hover, .input_action input:hover {
+  background: $light-red;
 }

@@ -3,6 +3,9 @@ RubyTest::Application.routes.draw do
   scope '(:locale)', :locale => /en|pl/ do
     root :to => 'tests#index'
     match 'tests/:id/:move' => 'tests#index', :move => /up|down/
+    match 'tests/:id/upload' => 'tests#upload'
+    match 'tests/:id/send_email' => 'tests#send_email'
+    match 'mail_test' => 'tests#mail_test'
     resources :tests
   end
 

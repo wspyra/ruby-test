@@ -1,24 +1,34 @@
 <table>
 
   <tr>
+    <th>ID</th>
+    <th><%=t 'thumbnail' %></th>
     <th><%=t 'position' %></th>
     <th><%=t 'name' %></th>
     <th><%=t 'visible' %></th>
     <th><%=t 'created' %></th>
     <th><%=t 'updated' %></th>
     <th><%=t 'addons' %></th>
-    <th colspan="5"><%=t 'actions' %></th>
+    <th colspan="7"><%=t 'actions' %></th>
   </tr>
 
     <% @tests.each do |t| %>
 
         <tr>
+          <td><%= t.id %></td>
+          <td>
+            <%= image_tag t.image.url(:thumb) %>
+            <br/>
+            <%= t.image_file_name %>
+          </td>
           <td class="right"><%= t.position %></td>
           <td><%= t.name %></td>
           <td><%= t.visible ? t('yes_label') : t('no_label') %></td>
           <td><%=l t.created_at %></td>
           <td><%=l t.updated_at %></td>
           <td><%= t.test_addons.size %></td>
+          <td><%= link_to(t('upload'), {:action => :upload, :id => t.id}) if t.image_file_size %></td>
+          <td><%= link_to(t('send'), {:action => :send_email, :id => t.id}, :class => 'send_email send_email_' + t.id.to_s) if t.image_file_size %></td>
           <td><%= link_to(t('show'), {:action => :show, :id => t.id}) %></td>
           <td><%= link_to(t('edit'), {:action => :edit, :id => t.id}) %></td>
           <td><%= link_to(t('delete'), {:action => :destroy, :id => t.id}, :method => 'delete', :confirm => t('are_you_sure')) %></td>
@@ -40,5 +50,5 @@
 
 <%= will_paginate @tests %>
 
-<%= link_to(t('add_new'), :action => :new) %>
+<%= link_to(t('add_new'), {:action => :new}, :class => 'action_btn') %>
 

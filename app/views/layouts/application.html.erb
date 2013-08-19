@@ -4,6 +4,10 @@
   <title>RubyTest</title>
   <%= stylesheet_link_tag    'application', :media => 'all' %>
   <%= javascript_include_tag 'application' %>
+  <%= javascript_tag do %>
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale %>";
+  <% end %>
   <%= csrf_meta_tags %>
 </head>
 <body id="<%= :controller_name %>" class="<%= :action_name %>">
@@ -16,7 +20,7 @@
 
   <div class="header">
     <div class="container">
-      <h1>Ruby <span>Test</span></h1>
+      <h1>Ruby on Rails <span>Test</span></h1>
     </div>
   </div>
 

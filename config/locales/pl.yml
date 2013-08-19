@@ -4,6 +4,7 @@ pl:
   date:
     formats:
       default: '%d.%m.%Y'
+
   time:
     formats:
       default: '%d.%m.%Y %H:%M'
@@ -16,6 +17,7 @@ pl:
         name: 'Nazwa'
         data: 'Dane'
         visible: 'Widoczność'
+        image: 'Obrazek'
         test_addon:
           name: 'Nazwa'
           value: 'Wartość'
@@ -54,3 +56,19 @@ pl:
   move_up: 'Wyżej'
   move_down: 'Niżej'
   notice: 'Informacja'
+  size: 'Rozmiar'
+  delete_image: 'Usuń obrazek'
+  job_added: "Zadanie dodane!"
+  job_already_added: "Zadanie dodano wcześniej!"
+  error: 'Błąd'
+  thumbnail: 'Miniatura'
+  upload_status: "Status transferu FTP"
+  upload: 'Wyślij na FTP'
+  send: 'Wyślij email'
+  mail_status: "Status wysyłki maila"
+  NEW: 'Nowy'
+  IN_PROGRESS: 'W trakcie'
+  ERROR: 'Błąd'
+  OK: 'OK'
+  enter_email: 'Podaj email:'
+  incorrect_email: 'Błędny email'

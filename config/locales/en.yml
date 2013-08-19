@@ -6,6 +6,7 @@ en:
   date:
     formats:
       default: '%d.%m.%Y'
+
   time:
     formats:
       default: '%d.%m.%Y %H:%M'
@@ -36,3 +37,17 @@ en:
   move_up: 'Move up'
   move_down: 'Move down'
   notice: 'Notice'
+  size: 'Size'
+  job_added: "Job added!"
+  job_already_added: "Job already added!"
+  upload_status: "FTP upload status"
+  mail_status: "Mail status"
+  error: 'Error'
+  enter_email: 'Enter email:'
+  thumbnail: 'Thumbnail'
+  upload: 'Upload'
+  send: 'Send'
+  NEW: 'New'
+  IN_PROGRESS: 'In progress'
+  ERROR: 'Error'
+  OK: 'OK'

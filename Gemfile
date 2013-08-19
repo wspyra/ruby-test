@@ -12,6 +12,10 @@ gem 'cocoon'
 gem 'acts_as_list'
 gem 'paperclip', '~> 3.0'
 gem 'will_paginate', '~> 3.0.0'
+gem 'fancybox-rails'
+gem 'rails-i18n'
+gem 'i18n-js'
+gem 'delayed_job_active_record'
 
 # Gems used only for assets and not required
 # in production environments by default.

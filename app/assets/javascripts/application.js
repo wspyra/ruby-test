@@ -12,10 +12,39 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require fancybox
 //= require cocoon
+//= require i18n
+//= require i18n/translations
+//= require_tree .
 
 function setLocale() {
   var locale = $('#language_select option:selected').val();
   window.location = '/' + $('#language_select option:selected').val();
 }
+
+$(document).ready(function(){
+    $('a.fancybox').fancybox({'type': 'image'});
+
+    $('.send_email').click(function(){
+
+        var email = window.prompt(I18n.t('enter_email'));
+        var id = $(this).attr('class').replace('send_email send_email_', '');
+        alert(id);
+
+        if (null !== email && '' !== email) {
+            var send_data = {email: email, id: 6};
+            $.ajax({
+                url: $(this).attr('href'),
+                type: 'json',
+                method: 'post',
+                data: send_data,
+                success: function() {
+                    window.location.reload();
+                }
+            });
+        }
+
+        return false;
+    });
+});
