@@ -46,9 +46,12 @@ RubyTest::Application.configure do
       enable_starttls_auto: true,
       openssl_verify_mode:  OpenSSL::SSL::VERIFY_NONE
   }
+  DEFAULT_FROM_EMAIL = 'ruby@<>'
 
-  FTP_SERVER_URL = ''
-  FTP_SERVER_LOGIN = ''
+  FTP_SERVER_URL = '<>'
+  FTP_SERVER_LOGIN = 'ruby@<>'
   FTP_SERVER_PASSWORD = ''
+
+  GZ_EXT = '.gz'
 
 end

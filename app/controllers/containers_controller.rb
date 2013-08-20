@@ -77,7 +77,7 @@ class ContainersController < ApplicationController
       flash[:error] = t :job_already_added
     else
       container.update_attribute(:status_upload, JOB_STATUSES[:in_progress])
-      container.delay.upload_ftp
+      container.delay(:run_at => Proc.new { 10.seconds.from_now }).upload_ftp
       flash[:notice] = t :job_added
     end unless container.nil?
     redirect_to :action => :index, :page => params[:page]
@@ -91,7 +91,7 @@ class ContainersController < ApplicationController
         flash[:error] = t :job_already_added
       else
         container.update_attribute(:status_mail, JOB_STATUSES[:in_progress])
-        container.delay.send_email(params[:email])
+        ContainerMailer.delay(:run_at => Proc.new { 10.seconds.from_now }).send_container(container.id, DEFAULT_FROM_EMAIL, params[:email])
         flash[:notice] = t :job_added
       end
     else
@@ -99,6 +99,5 @@ class ContainersController < ApplicationController
     end unless container.nil?
     render json: {:status => 'OK'}
   end
-
 
 end

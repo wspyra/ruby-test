@@ -24,35 +24,33 @@ class Container < ActiveRecord::Base
 
   alias_method :delete_image?, :delete_image
 
-  def upload
-
-  end
-
-  require 'net/ftp'
-
   def upload_ftp
-    ftp = Net::FTP.new FTP_SERVER_URL
-    ftp.login FTP_SERVER_LOGIN, FTP_SERVER_PASSWORD
+    gz_file_name = :image_file_name + GZ_EXT
+    gz_file_path = image.path + GZ_EXT
+
+    ftp = FtpClient.new FTP_SERVER_URL, FTP_SERVER_LOGIN, FTP_SERVER_PASSWORD
+    return false unless ftp.logged_in
+    ftp.mkdir_safe id.to_s
+    ftp.chdir id.to_s
+    ftp.delete_safe gz_file_name
+
+    file_content = File.read(image.path)
+    gzip_content = ActiveSupport::Gzip.compress(file_content)
+    file_handle = File.open(gz_file_path, 'wb')
+    file_handle.puts  gzip_content
+    file_handle.close
+
     begin
-      ftp.mkdir id.to_s
-    rescue
-      # directory exists, do nothing
-    end
-    ftp.chdir(id.to_s)
-    begin
-      ftp.delete :image_file_name
-    rescue
-      # file do not exists, do nothing
-    end
-    begin
-      ftp.putbinaryfile image.path, image_file_name
+      ftp.putbinaryfile gz_file_path, gz_file_name
     rescue
       update_attribute :status_upload, JOB_STATUSES[:error]
     end
+
+    File.delete gz_file_path
+
     update_attribute :status_upload, JOB_STATUSES[:ok]
     ftp.quit
     true
   end
-  handle_asynchronously :upload, :run_at => Proc.new { 10.seconds.from_now }
 
 end
