@@ -48,7 +48,7 @@ RubyTest::Application.configure do
   }
 
   FTP_SERVER_URL = ''
-  FTP_SERVER_LOGIN = 'ruby@'
+  FTP_SERVER_LOGIN = ''
   FTP_SERVER_PASSWORD = ''
 
 end

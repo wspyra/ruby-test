@@ -1,5 +1,5 @@
 class AddImageToTest < ActiveRecord::Migration
   def change
-    add_attachment :tests, :image
+    add_attachment :containers, :image
   end
 end

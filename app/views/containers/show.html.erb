@@ -1,0 +1,100 @@
+<h1>
+  <%= t 'show_details_about_id' %>: <%= @container.id %>
+</h1>
+
+<p>
+  <strong>
+    <%= t 'name' %>:
+  </strong>
+  <span><%= @container.name %></span>
+</p>
+
+<p>
+  <strong>
+    <%= t 'data' %>:
+  </strong>
+  <span><%= @container.data %></span>
+</p>
+
+<p>
+  <strong>
+    <%= t 'position' %>:
+  </strong>
+  <span><%= @container.position %></span>
+</p>
+
+<p>
+  <strong>
+    <%= t 'upload_status' %>:
+  </strong>
+  <span><%= @container.status_upload ? t(@container.status_upload) : t('none') %></span>
+</p>
+
+<p>
+  <strong>
+    <%= t 'mail_status' %>:
+  </strong>
+  <span><%= @container.status_mail ? t(@container.status_mail) : t('none') %></span>
+</p>
+
+<p>
+  <strong>
+    <%= t 'visible' %>:
+  </strong>
+  <span>
+    <%= @container.visible ? t('yes_label') : t('no_label') %>
+  </span>
+</p>
+
+<p>
+  <strong>
+    <%= t 'created' %>:
+  </strong>
+  <span>
+    <%= l @container.created_at %>
+  </span>
+</p>
+
+<p>
+  <strong>
+    <%= t 'updated'%>:
+  </strong>
+  <span>
+    <%= l @container.updated_at %>
+  </span>
+</p>
+
+<div>
+  <div>
+    <%= link_to image_tag(@container.image.url(:medium)), @container.image.url, :class => 'fancybox' %>
+  </div>
+  <% if @container.image_file_name %>
+      <p>
+        <%=t 'name' %>: <%= @container.image_file_name %>
+      </p>
+      <p>
+        <%=t 'size' %>: <%= number_to_human_size @container.image_file_size   %>
+      </p>
+      <p>
+        <%=t 'updated' %>: <%=l @container.image_updated_at unless @container.image_updated_at.blank? %>
+      </p>
+  <% end %>
+</div>
+
+<div>
+  <strong>
+    <%= t 'addons' %>:
+  </strong>
+  <ul>
+      <% @container.addons.each do |t| %>
+        <li>
+          <strong>
+            <%= t.name %>:
+          </strong>
+          <%= t.value %>
+        </li>
+      <% end %>
+  </ul>
+</div>
+
+<%= render 'containers/back_to_list' %>

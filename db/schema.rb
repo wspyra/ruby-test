@@ -11,7 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130814114820) do
+ActiveRecord::Schema.define(:version => 20130819104710) do
+
+  create_table "addons", :force => true do |t|
+    t.integer  "container_id"
+    t.string   "name"
+    t.string   "value"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "addons", ["container_id"], :name => "index_test_addons_on_test_id"
+
+  create_table "containers", :force => true do |t|
+    t.string   "name"
+    t.text     "data"
+    t.integer  "position"
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
+    t.boolean  "visible",                          :default => true
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "status_upload",      :limit => 12
+    t.string   "status_mail",        :limit => 12
+  end
+
+  add_index "containers", ["position"], :name => "index_tests_on_position"
+  add_index "containers", ["visible"], :name => "index_tests_on_visible"
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -37,33 +65,5 @@ ActiveRecord::Schema.define(:version => 20130814114820) do
   end
 
   add_index "languages", ["code"], :name => "index_languages_on_code"
-
-  create_table "test_addons", :force => true do |t|
-    t.integer  "test_id"
-    t.string   "name"
-    t.string   "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "test_addons", ["test_id"], :name => "index_test_addons_on_test_id"
-
-  create_table "tests", :force => true do |t|
-    t.string   "name"
-    t.text     "data"
-    t.integer  "position"
-    t.datetime "created_at",                                         :null => false
-    t.datetime "updated_at",                                         :null => false
-    t.boolean  "visible",                          :default => true
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.string   "status_upload",      :limit => 12
-    t.string   "status_mail",        :limit => 12
-  end
-
-  add_index "tests", ["position"], :name => "index_tests_on_position"
-  add_index "tests", ["visible"], :name => "index_tests_on_visible"
 
 end

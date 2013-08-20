@@ -52,3 +52,5 @@ en:
   ERROR: 'Error'
   OK: 'OK'
   none: 'None'
+  delete_image: "Delete image"
+  incorrect_email: "Incorrect email"

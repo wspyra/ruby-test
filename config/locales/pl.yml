@@ -13,12 +13,12 @@ pl:
     titles:
 
     labels:
-      test:
+      container:
         name: 'Nazwa'
         data: 'Dane'
         visible: 'Widoczność'
         image: 'Obrazek'
-        test_addon:
+        addon:
           name: 'Nazwa'
           value: 'Wartość'
     hints:
@@ -30,6 +30,10 @@ pl:
       update: 'Zapisz zmiany'
       reset: 'Zacznij od nowa'
       cancel: 'Anuluj'
+
+  will_paginate:
+    previous_label: 'Poprzednia strona'
+    next_label: 'Następna strona'
 
   addons: 'Dodatki'
   actions: 'Akcje'

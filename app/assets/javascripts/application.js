@@ -30,7 +30,6 @@ $(document).ready(function(){
 
         var email = window.prompt(I18n.t('enter_email'));
         var id = $(this).attr('class').replace('send_email send_email_', '');
-        alert(id);
 
         if (null !== email && '' !== email) {
             var send_data = {email: email, id: 6};
