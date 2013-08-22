@@ -1,17 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  test_id: MyString
-  type: 1
+  container_id: 1
   name: MyString
-  type: 
   value: MyString
-  type: 
-
-two:
-  test_id: MyString
-  type: 1
-  name: MyString
-  type: 
-  value: MyString
-  type: 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819104710) do
+ActiveRecord::Schema.define(:version => 20130821082425) do
 
   create_table "addons", :force => true do |t|
     t.integer  "container_id"
@@ -26,16 +26,16 @@ ActiveRecord::Schema.define(:version => 20130819104710) do
   create_table "containers", :force => true do |t|
     t.string   "name"
     t.text     "data"
-    t.integer  "position"
-    t.datetime "created_at",                                         :null => false
-    t.datetime "updated_at",                                         :null => false
+    t.integer  "position",                         :default => 0
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
     t.boolean  "visible",                          :default => true
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "status_upload",      :limit => 12
-    t.string   "status_mail",        :limit => 12
+    t.string   "status_upload",      :limit => 12, :default => "NEW"
+    t.string   "status_mail",        :limit => 12, :default => "NEW"
   end
 
   add_index "containers", ["position"], :name => "index_tests_on_position"

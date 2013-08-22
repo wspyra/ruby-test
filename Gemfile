@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -16,6 +16,7 @@ gem 'fancybox-rails'
 gem 'rails-i18n'
 gem 'i18n-js'
 gem 'delayed_job_active_record'
+gem 'passenger'
 
 # Gems used only for assets and not required
 # in production environments by default.

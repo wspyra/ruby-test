@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  code: MyString
+en:
+  id: 1
+  name: English
+  code:
 
-two:
-  name: MyString
-  code: MyString
+pl:
+  id: 2
+  name: Polski
+  code: pl

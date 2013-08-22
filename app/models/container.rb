@@ -6,7 +6,7 @@ class Container < ActiveRecord::Base
 
   attr_protected :image_file_name, :image_content_type, :image_file_size
 
-  validates_presence_of :name, :position, :on => :create
+  validates_presence_of :name, :position
   validates_uniqueness_of :name
 
   has_many :addons, :dependent => :destroy
@@ -25,11 +25,15 @@ class Container < ActiveRecord::Base
   alias_method :delete_image?, :delete_image
 
   def upload_ftp
-    gz_file_name = :image_file_name + GZ_EXT
+    gz_file_name = :image_file_name.to_s + GZ_EXT
     gz_file_path = image.path + GZ_EXT
 
-    ftp = FtpClient.new FTP_SERVER_URL, FTP_SERVER_LOGIN, FTP_SERVER_PASSWORD
-    return false unless ftp.logged_in
+    begin
+      ftp = FtpClient.new FTP_SERVER_URL, FTP_SERVER_LOGIN, FTP_SERVER_PASSWORD
+    rescue
+      # ftp.logged_in in rails 3.2.12 disappear..
+      return false
+    end
     ftp.mkdir_safe id.to_s
     ftp.chdir id.to_s
     ftp.delete_safe gz_file_name

@@ -18,8 +18,7 @@ class ContainersController < ApplicationController
 
   def edit
     @container = Container.find_by_id(params[:id])
-    @action_method = :put
-    @action_url = self.container_path
+    redirect_to containers_path if @container.nil?
   end
 
   def show
@@ -28,35 +27,25 @@ class ContainersController < ApplicationController
 
   def new
     @container = Container.new
-    @action_url = containers_path
-    @action_method = :post
-    render :edit
   end
 
   def update
     @container = Container.find(params[:id])
-    if params[:container][:delete_image] == 1
-      params[:container][:image] = nil
-    end
+    @container.image = nil if params[:container][:delete_image]
     if @container.update_attributes(params[:container])
-      flash[:notice] = t :saved
-      redirect_to :id => @container.id
+      redirect_to container_path, :notice => t(:saved)
     else
-      @action_url = :save
       render :edit
     end
   end
 
   def create
     @container = Container.new(params[:container])
-    @container.position = 0
     if @container.save
-      flash[:notice] = t :saved
       @container.move_to_bottom
-      redirect_to :action => :index
+      redirect_to({:id => @container.id}, {:notice => t(:saved)})
     else
-      @action_method = :post
-      render :edit
+      render :new
     end
   end
 

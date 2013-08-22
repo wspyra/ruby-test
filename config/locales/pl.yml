@@ -34,6 +34,7 @@ pl:
   will_paginate:
     previous_label: 'Poprzednia strona'
     next_label: 'Następna strona'
+    page_gap: '...'
 
   addons: 'Dodatki'
   actions: 'Akcje'
