@@ -1,5 +1,4 @@
 <table>
-
   <tr>
     <th><%=t 'position' %></th>
     <th>ID</th>
@@ -11,42 +10,30 @@
     <th><%=t 'addons' %></th>
     <th colspan="7"><%=t 'actions' %></th>
   </tr>
-
-    <% @containers.each do |c| %>
-
-        <tr>
-          <td><%= c.position %></td>
-          <td><%= c.id %></td>
-          <td>
-            <%= image_tag c.image.url :thumb %><br/><%= c.image_file_name %>
-          </td>
-          <td><%= c.name %></td>
-          <td><%=t c.visible ? 'yes_label' : 'no_label' %></td>
-          <td><%=l c.created_at %></td>
-          <td><%=l c.updated_at %></td>
-          <td><%= c.addons.size %></td>
-          <td><%= link_to t('upload'), {:action => :upload, :id => c.id, :page => params[:page]} if c.image_file_size %></td>
-          <td><%= link_to t('send'), {:action => :send_email, :id => c.id}, :class => 'send_email send_email_' + c.id.to_s if c.image_file_size %></td>
-          <td><%= link_to t('show'), {:action => :show, :id => c.id}  %></td>
-          <td><%= link_to t('edit'), {:action => :edit, :id => c.id} %></td>
-          <td><%= link_to t('delete'), {:action => :destroy, :id => c.id}, :method => 'delete', :confirm => t('are_you_sure') %></td>
-          <td>
-            <% unless c.first? -%>
-                <%= link_to t('move_up'), {:move => :up, :id => c.id} %>
-            <% end -%>
-          </td>
-          <td>
-            <% unless c.last? -%>
-                <%= link_to t('move_down'), {:move => :down, :id => c.id} %>
-            <% end -%>
-          </td>
-        </tr>
-
-    <% end %>
-
+  <% @containers.each do |c| %>
+      <tr>
+        <td><%= c.position %></td>
+        <td><%= c.id %></td>
+        <td>
+          <%= image_tag c.image.url :thumb %><br/><%= truncate c.image_file_name, length: 16 %>
+        </td>
+        <td><%= truncate c.name, length: 20 %></td>
+        <td><%=t c.visible ? 'yes_label' : 'no_label' %></td>
+        <td><%=l c.created_at %></td>
+        <td><%=l c.updated_at %></td>
+        <td><%= c.addons.size %></td>
+        <td><%= link_to t('upload'), {:action => :upload, :id => c.id, :page => params[:page]} unless c.image.blank? %></td>
+        <td><%= link_to t('send'), {:action => :send_email, :id => c.id}, :class => 'send_email send_email_' + c.id.to_s unless c.image.blank? %></td>
+        <td><%= link_to t('show'), container_path(:id => c.id) %></td>
+        <td><%= link_to t('edit'), edit_container_path(:id => c.id) %></td>
+        <td><%= link_to t('delete'), container_path(:id => c.id), :method => 'delete', :confirm => t('are_you_sure') %></td>
+        <td><%= link_to t('move_up'), {:move => :up, :id => c.id} unless c.first? %></td>
+        <td><%= link_to t('move_down'), {:move => :down, :id => c.id} unless c.last? %></td>
+      </tr>
+  <% end %>
 </table>
 
 <%= will_paginate @containers %>
 
-<%= link_to t('add_new'), {:action => :new}, :class => 'action_btn' %>
+<%= link_to t('add_new'), new_container_path, :class => 'action_btn' %>
 

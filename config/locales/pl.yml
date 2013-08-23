@@ -26,7 +26,7 @@ pl:
     placeholders:
 
     actions:
-      create: 'Dodaj %{model}'
+      create: 'Dodaj nowy'
       update: 'Zapisz zmiany'
       reset: 'Zacznij od nowa'
       cancel: 'Anuluj'

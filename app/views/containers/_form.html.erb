@@ -1,0 +1,27 @@
+<%= f.inputs do %>
+    <%= f.input :name %>
+    <%= f.input :data %>
+    <%= f.input :visible %>
+    <%= f.input :image, :hint => f.template.image_tag(@container.image.url :medium) %>
+    <%= f.input :delete_image, :as => :boolean, :label => t('delete_image') %>
+<% end %>
+
+<h2>
+  <%= t 'addons' %>
+</h2>
+
+<%= f.semantic_fields_for :addons do |fa| %>
+
+    <%= render 'addon_fields', :f => fa %>
+
+<% end %>
+
+<div>
+  <%= link_to_add_association t('add_new'), f, :addons, :class => 'action_btn' %>
+</div>
+
+<hr/>
+
+<%= f.actions :submit %>
+
+<hr/>

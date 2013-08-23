@@ -31,7 +31,6 @@ class ContainersController < ApplicationController
 
   def update
     @container = Container.find(params[:id])
-    @container.image = nil if params[:container][:delete_image]
     if @container.update_attributes(params[:container])
       redirect_to container_path, :notice => t(:saved)
     else

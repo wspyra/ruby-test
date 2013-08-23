@@ -1,6 +1,7 @@
 <% 1000.times do |n| %>
-container_<%= n %>:
-  name: <%= "container#{n}" %>
-  data: <%= "sample data adsadasd#{n}" %>
-  position: <%= n %>
+<% nn = n + 1 %>
+container_<%= nn %>:
+  name: <%= "container#{nn}" %>
+  data: <%= "sample data adsadasd#{nn}" %>
+  position: <%= nn %>
 <% end %>

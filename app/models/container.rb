@@ -12,17 +12,11 @@ class Container < ActiveRecord::Base
   has_many :addons, :dependent => :destroy
   accepts_nested_attributes_for :addons, :reject_if => :all_blank, :allow_destroy => true
 
+  attr_accessor :delete_image
+
+  before_validation { image.clear if delete_image == '1' }
+
   acts_as_list
-
-  def delete_image=(value)
-    @delete_image = !value.to_i.zero?
-  end
-
-  def delete_image
-    !!@delete_image
-  end
-
-  alias_method :delete_image?, :delete_image
 
   def upload_ftp
     gz_file_name = :image_file_name.to_s + GZ_EXT
