@@ -1,6 +1,6 @@
 <h1><%= t('edit_id') + ' ' + @container.id.to_s %></h1>
 
-<%= semantic_form_for @container, :url => container_path, :html => { :multipart => true } do |f| %>
+<%= semantic_form_for @container, :url => container_path, :html => { :multipart => true }, :validate => true do |f| %>
   <%= render 'containers/form', :f => f %>
 <% end %>
 

@@ -17,6 +17,8 @@ gem 'rails-i18n'
 gem 'i18n-js'
 gem 'delayed_job_active_record'
 gem 'passenger'
+gem 'client_side_validations'
+gem 'client_side_validations-formtastic'
 
 # Gems used only for assets and not required
 # in production environments by default.

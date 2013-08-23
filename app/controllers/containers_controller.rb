@@ -65,7 +65,7 @@ class ContainersController < ApplicationController
       flash[:error] = t :job_already_added
     else
       container.update_attribute(:status_upload, JOB_STATUSES[:in_progress])
-      container.delay(:run_at => Proc.new { 10.seconds.from_now }).upload_ftp
+      FtpUpload.new.delay(:run_at => Proc.new {10.seconds.from_now}).upload_container(FTP_SERVER_URL, FTP_SERVER_LOGIN, FTP_SERVER_PASSWORD, container)
       flash[:notice] = t :job_added
     end unless container.nil?
     redirect_to :action => :index, :page => params[:page]

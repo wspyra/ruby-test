@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require fancybox
 //= require cocoon
+//= require rails.validations
+//= require rails.validations.formtastic
 //= require i18n
 //= require i18n/translations
 //= require_tree .
@@ -46,4 +48,9 @@ $(document).ready(function(){
 
         return false;
     });
+
+    $('form').on('cocoon:after-insert', function(e) {
+        $(e.delegateTarget).find('input').enableClientSideValidations();
+    });
+
 });
