@@ -8,6 +8,7 @@ gem 'rails', '3.2.12'
 gem 'mysql2'
 
 gem 'formtastic'
+gem 'nested_form'
 gem 'cocoon'
 gem 'acts_as_list'
 gem 'paperclip', '~> 3.0'

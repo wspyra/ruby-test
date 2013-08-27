@@ -3,6 +3,10 @@
 
 en:
 
+  errors:
+    messages:
+      postal_code: 'Wrong postal code'
+
   date:
     formats:
       default: '%d.%m.%Y'

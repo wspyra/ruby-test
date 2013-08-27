@@ -16,8 +16,10 @@
 //= require cocoon
 //= require rails.validations
 //= require rails.validations.formtastic
+//= require rails.validations.custom
 //= require i18n
 //= require i18n/translations
+//= require jquery_nested_form
 //= require_tree .
 
 function setLocale() {

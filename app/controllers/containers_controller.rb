@@ -19,6 +19,10 @@ class ContainersController < ApplicationController
   def edit
     @container = Container.find_by_id(params[:id])
     redirect_to containers_path if @container.nil?
+
+    @container.addons.each do |a|
+      a.contact_email = ContactEmail.new if a.contact_email.nil?
+    end
   end
 
   def show

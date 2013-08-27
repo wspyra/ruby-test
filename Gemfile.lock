@@ -76,6 +76,7 @@ GEM
     mime-types (1.24)
     multi_json (1.7.9)
     mysql2 (0.3.13)
+    nested_form (0.3.2)
     paperclip (3.5.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -149,6 +150,7 @@ DEPENDENCIES
   i18n-js
   jquery-rails
   mysql2
+  nested_form
   paperclip (~> 3.0)
   passenger
   rails (= 3.2.12)

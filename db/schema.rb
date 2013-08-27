@@ -11,17 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130821082425) do
+ActiveRecord::Schema.define(:version => 20130826100251) do
 
   create_table "addons", :force => true do |t|
     t.integer  "container_id"
     t.string   "name"
     t.string   "value"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "language_id",  :default => 1
   end
 
   add_index "addons", ["container_id"], :name => "index_test_addons_on_test_id"
+
+  create_table "contact_emails", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "addon_id"
+  end
 
   create_table "containers", :force => true do |t|
     t.string   "name"
@@ -36,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130821082425) do
     t.datetime "image_updated_at"
     t.string   "status_upload",      :limit => 12, :default => "NEW"
     t.string   "status_mail",        :limit => 12, :default => "NEW"
+    t.string   "postal_code",        :limit => 20
   end
 
   add_index "containers", ["position"], :name => "index_tests_on_position"

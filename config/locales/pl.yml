@@ -1,6 +1,10 @@
 
 pl:
 
+  errors:
+    messages:
+      postal_code: 'Niepoprawny kod pocztowy'
+
   date:
     formats:
       default: '%d.%m.%Y'
