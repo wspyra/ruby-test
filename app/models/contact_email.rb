@@ -4,4 +4,6 @@ class ContactEmail < ActiveRecord::Base
 
   attr_accessible :id, :email, :addon_id, :updated_at, :created_at
 
+  validates :email, :email_format => true
+
 end

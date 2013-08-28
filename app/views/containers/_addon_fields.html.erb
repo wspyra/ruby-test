@@ -6,7 +6,7 @@
     <%= f.semantic_fields_for :contact_email do |ce| %>
       <%= render 'contact_email_fields', :f => ce %>
     <% end %>
-    <%= link_to_add_association t('add_email'), f, :contact_email if f.object.contact_email.nil? %>
+    <%= link_to_add_association 'add_email', f, :contact_email, :class => 'hidden' if f.object.contact_email.nil? %>
   <% end %>
   <%= link_to_remove_association t('remove'), f, :class => 'action_btn' %>
 </div>

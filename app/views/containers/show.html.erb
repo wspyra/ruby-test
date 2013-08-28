@@ -92,6 +92,8 @@
             <%= t.name %>:
           </strong>
           <%= t.value %>
+          <%= ' (' + Language.find_by_id(t.language_id).name + ')' if t.language_id %>
+          <%= ', email: ' + t.contact_email.email unless t.contact_email.email.blank? %>
         </li>
       <% end %>
   </ul>

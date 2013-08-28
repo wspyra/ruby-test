@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require fancybox
 //= require cocoon
-//= require rails.validations
+//= require rails.validations2
 //= require rails.validations.formtastic
 //= require rails.validations.custom
 //= require i18n
@@ -49,6 +49,11 @@ $(document).ready(function(){
         }
 
         return false;
+    });
+
+    $('form').on('cocoon:before-insert', function(e, insertedItem) {
+        var insertion = $( $(insertedItem).find('a.add_fields').data('association-insertion-template') );
+        $(insertedItem).find('.inputs ol').append(insertion);
     });
 
     $('form').on('cocoon:after-insert', function(e) {
